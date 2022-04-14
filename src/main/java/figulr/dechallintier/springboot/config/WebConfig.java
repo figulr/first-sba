@@ -1,5 +1,6 @@
 package figulr.dechallintier.springboot.config;
 
+
 import figulr.dechallintier.springboot.config.auth.LoginUserArgumentResolver;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;

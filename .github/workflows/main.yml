@@ -2,12 +2,14 @@ name: first-sba
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
   pull_request:
-    branches: [ master ]
+    branches: 
+      - master
   workflow_dispatch:
   
-env: # 새로 추가한 부분 
+env: 
   S3_BUCKET_NAME: first-sba-build 
   PROJECT_NAME: first-sba
 
@@ -17,7 +19,8 @@ jobs:
 
   
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v2
       
       - name: Setup Java JDK
         uses: actions/setup-java@v1

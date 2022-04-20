@@ -34,9 +34,6 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
         shell: bash
-
-      - name: Copy script
-        run: cp ./scripts/*.sh ./deploy
         
       - name: Make zip file 
         run:

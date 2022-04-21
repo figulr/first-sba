@@ -37,12 +37,12 @@ jobs:
         
       - name: Make zip file 
         run: |
-          mkdir -p before-deploy \
-          cp scripts/*.sh ./before-deploy \
-          cp appspec.yml ./before-deploy \
-          cp build/libs/*.jar ./before-deploy \
-          cd before-deploy \
-          zip -r ./$GITHUB_SHA.zip . \
+          mkdir -p before-deploy
+          cp scripts/*.sh ./before-deploy
+          cp appspec.yml ./before-deploy
+          cp build/libs/*.jar ./before-deploy
+          cd before-deploy
+          zip -r ./$GITHUB_SHA.zip .
           mv ./$GITHUB_SHA.zip ../
         shell: bash 
         
@@ -62,7 +62,7 @@ jobs:
           --application-name first-sba \
           --deployment-config-name CodeDeployDefault.AllAtOnce \
           --deployment-group-name first-sba-group \
-          --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$PROJECT_NAME/$GITHUB_SHA.zip
+          --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$GITHUB_SHA.zip
 
 
 

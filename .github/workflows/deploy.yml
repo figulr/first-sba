@@ -34,17 +34,16 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
         shell: bash
-
-      - name: Copy script
-        run: cp ./scripts/*.sh ./deploy
         
       - name: Make zip file 
-        run:
+        run: |
           mkdir -p before-deploy
-          cp ./scripts/*.sh ./before-deploy
+          cp scripts/*.sh ./before-deploy
           cp appspec.yml ./before-deploy
           cp build/libs/*.jar ./before-deploy
-          cd before-deploy && zip -r ../$GITHUB_SHA.zip .
+          cd before-deploy
+          zip -r ./$GITHUB_SHA.zip .
+          mv ./$GITHUB_SHA.zip ../
         shell: bash 
         
       - name: Configure AWS credentials 

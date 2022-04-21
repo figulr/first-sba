@@ -55,7 +55,7 @@ jobs:
           --application-name first-sba \
           --deployment-config-name CodeDeployDefault.AllAtOnce \
           --deployment-group-name first-sba-group \
-          --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$S3_BUCKET_NAME/$PROJECT_NAME/$GITHUB_SHA.zip
+          --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=/$PROJECT_NAME/$GITHUB_SHA.zip
 
 
 

@@ -1,7 +1,4 @@
 .gradle
 .idea
 /src/main/resources/application-oauth.properties
-/scripts/health.sh
-/scripts/profile.sh
-/scripts/stop.sh
-/scripts/switch.sh
+

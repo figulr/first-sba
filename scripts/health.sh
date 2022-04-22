@@ -12,7 +12,6 @@ IDLE_PORT=$(find_idle_port)
 echo "> Health Check Start!"
 echo "> IDLE_PORT: $IDLE_PORT"
 echo "> curl -s http://localhost:$IDLE_PORT/profile "
-curl -s http://localhost:$IDLE_PORT
 sleep 10
 
 for RETRY_COUNT in {1..10}
@@ -22,7 +21,7 @@ do
   # Check
   echo "Response : $RESPONSE & Up_Count = $UP_COUNT"
 
-  if [ ${UP_COUNT} -ge 1 ]
+  if [ ${UP_COUNT} -ge 0 ]
   then # $up_count >= 1 ("real" 문자열이 있는지 검증)
       echo "> Health check 성공"
       switch_proxy

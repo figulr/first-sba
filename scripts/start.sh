@@ -8,14 +8,13 @@ REPOSITORY=/home/ec2-user/app/step3
 PROJECT_NAME=first-sba
 
 echo "> Build 파일 복사"
-echo "> cp $REPOSITORY/zip/*.jar $REPOSITORY/"
 
 cp $REPOSITORY/zip/*.jar $REPOSITORY/
 
 echo "> 새 애플리케이션 배포"
 JAR_NAME=$(ls -tr $REPOSITORY/*.jar | tail -n 1)
 
-echo "> JAR Naem: $JAR_NAME"
+echo "> JAR Name: $JAR_NAME"
 echo "> $JAR_NAME 에 실행권한 부여"
 
 chmod +x $JAR_NAME
@@ -23,6 +22,8 @@ chmod +x $JAR_NAME
 echo "> $JAR_NAME 실행"
 
 IDLE_PROFILE=$(find_idle_profile)
+# check
+echo "IDLE_PROFILE = $IDLE_PROFILE"
 
 echo "> $JAR_NAME 를 profile=$IDLE_PROFILE 로 실행"
 nohup java -jar \

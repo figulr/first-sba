@@ -12,15 +12,19 @@ permissions:
     group: ec2-user
 
 hooks:
-  AfetrInstall:
-    - location : stop.sh
-      timeout: 60
-      runas: ec2-user
+#  AfetrInstall:
+#    - location : stop.sh
+#      timeout: 60
+#      runas: ec2-user
+#  ApplicationStart:
+#    - location: start.sh
+#      timeout: 60
+#      runas: ec2-user
+#  ValidateService:
+#    - location: health.sh
+#      timeout: 60
+#      runas: ec2-user
   ApplicationStart:
-    - location: start.sh
+    - location: deploy.sh
       timeout: 60
-      runas: ec2-user
-  ValidateService:
-    - location: health.sh
-      timeout: 60
-      runas: ec2-user
+      runs: ec2-user
